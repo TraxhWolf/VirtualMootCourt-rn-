@@ -32,7 +32,7 @@ const AdminLoginScreen = () => {
     
     return (
         <SafeAreaView style={styles.screenContainer}>
-            <ImageBackground source={require("C:/Users/traxh/Documents/MootCourt/VirtualMootCourt/src-app/assets/HomeScreenBG.jpg")} imageStyle={{objectFit: "fill"}}>
+            <ImageBackground source={require("C:/Users/Superuser/Documents/MootCourt/VirtualMootCourt-rn-/VirtualMootCourt/src-app/assets/HomeScreenBG.jpg")} imageStyle={{objectFit: "fill"}}>
                 <View style={styles.invisibleContainer}>
                     <View style={styles.contentContainer}>
                     <BaseInput inputLabel={"Username"}></BaseInput>

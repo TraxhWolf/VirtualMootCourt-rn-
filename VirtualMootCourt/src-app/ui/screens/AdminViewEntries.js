@@ -2,7 +2,7 @@ import { Dimensions, Image, ImageBackground, SafeAreaView, ScrollView, StyleShee
 import AppNavBar from "../components/NavBar";
 
 
-const AdminHomeScreen = () => {
+const ViewEntriesScreen = () => {
     const { height, width } = Dimensions.get('window')
 
     const styles = StyleSheet.create(
@@ -39,4 +39,4 @@ const AdminHomeScreen = () => {
     )
 }
 
-export default AdminHomeScreen;
+export default ViewEntriesScreen;

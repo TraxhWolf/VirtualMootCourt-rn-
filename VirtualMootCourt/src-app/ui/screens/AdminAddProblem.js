@@ -1,8 +1,9 @@
 import { Dimensions, Image, ImageBackground, SafeAreaView, ScrollView, StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import AppNavBar from "../components/NavBar";
+import AppDropDown from "../components/DropDown"
 
 
-const AdminHomeScreen = () => {
+const AddProblemScreen = () => {
     const { height, width } = Dimensions.get('window')
 
     const styles = StyleSheet.create(
@@ -22,7 +23,8 @@ const AdminHomeScreen = () => {
                 borderTopRightRadius: 60,
                 borderTopWidth: 1,
                 padding: 25,
-                paddingTop: 60
+                paddingTop: 60,
+                alignItems: "center"
             }
         }
     )
@@ -32,6 +34,7 @@ const AdminHomeScreen = () => {
                 <View style={styles.invisibleContainer}>
                     <AppNavBar></AppNavBar>
                     <View style={styles.contentContainer}>
+                    <AppDropDown label={"Problem Category"}></AppDropDown>
                     </View>
                 </View>
             </ImageBackground>
@@ -39,4 +42,4 @@ const AdminHomeScreen = () => {
     )
 }
 
-export default AdminHomeScreen;
+export default AddProblemScreen;

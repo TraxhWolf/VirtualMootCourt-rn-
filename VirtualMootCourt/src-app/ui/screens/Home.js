@@ -4,10 +4,10 @@ import {HomeButton} from "../components/Button";
 const HomeScreen = () => {
     return (
         <SafeAreaView style={styles.screenContainer}>
-            <ImageBackground source={require("C:/Users/traxh/Documents/MootCourt/VirtualMootCourt/src-app/assets/HomeScreenBG.jpg")} imageStyle={{objectFit: "fill"}}>
+            <ImageBackground source={require("C:/Users/Superuser/Documents/MootCourt/VirtualMootCourt-rn-/VirtualMootCourt/src-app/assets/HomeScreenBG.jpg")} imageStyle={{objectFit: "fill"}}>
                 <View style={styles.invisibleContainer}>
                     <View style={styles.logoContainer}>
-                        <Image source={require("C:/Users/traxh/Documents/MootCourt/VirtualMootCourt/src-app/assets/logo.png")} style={styles.logo}></Image>
+                        <Image source={require("C:/Users/Superuser/Documents/MootCourt/VirtualMootCourt-rn-/VirtualMootCourt/src-app/assets/logo.png")} style={styles.logo}></Image>
                     </View>
                     <View style={styles.buttonContainer}>
                         <View style={{marginBottom: 15}}>
