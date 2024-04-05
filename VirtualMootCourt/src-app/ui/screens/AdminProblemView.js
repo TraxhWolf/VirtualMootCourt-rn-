@@ -1,8 +1,7 @@
 import { Dimensions, Image, ImageBackground, SafeAreaView, ScrollView, StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import AppNavBar from "../components/NavBar";
 
-
-const AdminHomeScreen = () => {
+const AdminProblemViewScreen = () => {
     const { height, width } = Dimensions.get('window')
 
     const styles = StyleSheet.create(
@@ -21,8 +20,11 @@ const AdminHomeScreen = () => {
                 borderTopLeftRadius: 60,
                 borderTopRightRadius: 60,
                 borderTopWidth: 1,
-                padding: 25,
-                paddingTop: 60
+                paddingTop: 60,
+                alignItems: "center"
+            },
+            marginView: {
+                marginBottom: 10
             }
         }
     )
@@ -39,4 +41,4 @@ const AdminHomeScreen = () => {
     )
 }
 
-export default AdminHomeScreen;
+export default AdminProblemViewScreen;

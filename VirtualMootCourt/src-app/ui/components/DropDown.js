@@ -4,16 +4,15 @@ const AppDropDown = ({label}) => {
     const styles = StyleSheet.create(
         {
             selectionButton: {
-                height: 40,
-                width: 250,
+                height: 60,
+                width: 300,
                 backgroundColor: "#ffffff",
-                borderRadius: 20
+                borderRadius: 10
             },
             label: {
                 color: "#ffffff",
                 marginBottom: 5,
-                marginLeft: 7,
-                fontSize: 15
+                fontSize: 16
             }
         }
     )

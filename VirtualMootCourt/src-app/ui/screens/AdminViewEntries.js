@@ -28,7 +28,7 @@ const ViewEntriesScreen = () => {
     )
     return (
         <SafeAreaView style={styles.screenContainer}>
-            <ImageBackground source={require("C:/Users/Superuser/Documents/MootCourt/VirtualMootCourt-rn-/VirtualMootCourt/src-app/assets/appBG.jpg")} imageStyle={{ objectFit: "fill" }}>
+            <ImageBackground source={require("../assets/appBG.jpg")} imageStyle={{ objectFit: "fill" }}>
                 <View style={styles.invisibleContainer}>
                     <AppNavBar></AppNavBar>
                     <View style={styles.contentContainer}>

@@ -1,10 +1,10 @@
 import { ImageBackground, SafeAreaView, StyleSheet, View, Dimensions } from "react-native"
-import {BaseInput, PasswordInput} from "../components/InputField"
+import { BaseInput, PasswordInput } from "../components/InputField"
 import { AppButton } from "../components/Button"
 
 const AdminLoginScreen = () => {
 
-    const {width,height} = Dimensions.get('window')
+    const { width, height } = Dimensions.get('window')
 
     const styles = StyleSheet.create(
         {
@@ -20,24 +20,30 @@ const AdminLoginScreen = () => {
                 alignItems: "center"
             },
             contentContainer: {
-                height: height/2,
+                height: height / 2,
                 width: width,
                 backgroundColor: "#131d24",
-                borderRadius: height/2,
+                borderRadius: height / 2,
                 alignItems: "center",
                 justifyContent: "center"
+            },
+            inputContainer: {
+                alignItems: "center",
+                
             }
         }
     )
-    
+
     return (
         <SafeAreaView style={styles.screenContainer}>
-            <ImageBackground source={require("C:/Users/Superuser/Documents/MootCourt/VirtualMootCourt-rn-/VirtualMootCourt/src-app/assets/HomeScreenBG.jpg")} imageStyle={{objectFit: "fill"}}>
+            <ImageBackground source={require("../assets/HomeScreenBG.jpg")} imageStyle={{ objectFit: "fill" }}>
                 <View style={styles.invisibleContainer}>
                     <View style={styles.contentContainer}>
-                    <BaseInput inputLabel={"Username"}></BaseInput>
-                    <PasswordInput passwordLabel={"Password"}></PasswordInput>
-                    <AppButton btnText={"LOGIN"}></AppButton>
+                        <View style={styles.inputContainer}>
+                            <BaseInput inputLabel={"Username"}></BaseInput>
+                            <PasswordInput passwordLabel={"Password"}></PasswordInput>
+                            <AppButton btnText={"LOGIN"}></AppButton>
+                        </View>
                     </View>
                 </View>
             </ImageBackground>

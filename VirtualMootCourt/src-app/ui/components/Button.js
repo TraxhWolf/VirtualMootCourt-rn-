@@ -32,8 +32,8 @@ export const AppButton = ({btnText}) => {
     const styles = StyleSheet.create(
         {
             button: {
-                height: 35,
-                width: 95,
+                height: 40,
+                width: 100,
                 borderRadius: 5,
                 backgroundColor: "#91795e",
                 justifyContent: "center",
@@ -42,7 +42,7 @@ export const AppButton = ({btnText}) => {
             },
             text: {
                 color: "#ffffff",
-                fontSize: 15
+                fontSize: 16
             }
         }
     ) 

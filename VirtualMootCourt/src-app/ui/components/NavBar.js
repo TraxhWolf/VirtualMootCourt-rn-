@@ -23,7 +23,7 @@ const AppNavBar = () => {
     return(
         <View style={styles.topNavBar}>
                 <TouchableOpacity style={styles.button}>
-                    <Image source={require("C:/Users/Superuser/Documents/MootCourt/VirtualMootCourt-rn-/VirtualMootCourt/src-app/assets/Icons/menu-icon.png")}></Image>
+                    <Image source={require("../assets/Icons/menu-icon.png")}></Image>
                 </TouchableOpacity>
             </View>
     )
