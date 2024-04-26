@@ -1,7 +1,7 @@
 import { ImageBackground, SafeAreaView, StyleSheet, View, Text, Image } from "react-native"
 import {HomeButton} from "../components/Button";
 
-const HomeScreen = () => {
+const HomeScreen = ({navigation}) => {
     return (
         <SafeAreaView style={styles.screenContainer}>
             <ImageBackground source={require("../assets/HomeScreenBG.jpg")} imageStyle={{objectFit: "fill"}}>
@@ -11,10 +11,10 @@ const HomeScreen = () => {
                     </View>
                     <View style={styles.buttonContainer}>
                         <View style={{marginBottom: 15}}>
-                        <HomeButton btnText={"ADMIN LOGIN"}></HomeButton>
-                        <HomeButton btnText={"STUDENT LOGIN"}></HomeButton>
+                        <HomeButton btnText={"ADMIN LOGIN"} onPress={()=>navigation.navigate("AdminLogin")}></HomeButton>
+                        <HomeButton btnText={"STUDENT LOGIN"} onPress={()=>navigation.navigate("StudentLogin")}></HomeButton>
                         </View>
-                        <HomeButton btnText={"ENTER MOOT"}></HomeButton>
+                        <HomeButton btnText={"ENTER MOOT"} onPress={()=>navigation.navigate("EnterMoot")}></HomeButton>
                     </View>
                 </View>
             </ImageBackground>

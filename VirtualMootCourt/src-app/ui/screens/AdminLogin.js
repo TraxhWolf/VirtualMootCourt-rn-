@@ -2,7 +2,7 @@ import { ImageBackground, SafeAreaView, StyleSheet, View, Dimensions } from "rea
 import { BaseInput, PasswordInput } from "../components/InputField"
 import { AppButton } from "../components/Button"
 
-const AdminLoginScreen = () => {
+const AdminLoginScreen = ({navigation}) => {
 
     const { width, height } = Dimensions.get('window')
 
@@ -42,7 +42,7 @@ const AdminLoginScreen = () => {
                         <View style={styles.inputContainer}>
                             <BaseInput inputLabel={"Username"}></BaseInput>
                             <PasswordInput passwordLabel={"Password"}></PasswordInput>
-                            <AppButton btnText={"LOGIN"}></AppButton>
+                            <AppButton btnText={"LOGIN"} onPress={()=>navigation.navigate("AdminHome")}></AppButton>
                         </View>
                     </View>
                 </View>

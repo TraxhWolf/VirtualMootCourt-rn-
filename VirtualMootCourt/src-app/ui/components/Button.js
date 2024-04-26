@@ -1,6 +1,6 @@
 import { StyleSheet, TouchableOpacity, Text } from "react-native"
 
-export const HomeButton = ({btnText}) => {
+export const HomeButton = ({btnText, onPress}) => {
 
     const styles = StyleSheet.create(
         {
@@ -21,13 +21,13 @@ export const HomeButton = ({btnText}) => {
     ) 
 
     return(
-        <TouchableOpacity style={styles.button}>
+        <TouchableOpacity style={styles.button} onPress={onPress}>
             <Text style={styles.text}>{btnText}</Text>
         </TouchableOpacity>
     )
 }
 
-export const AppButton = ({btnText}) => {
+export const AppButton = ({btnText, onPress}) => {
 
     const styles = StyleSheet.create(
         {
@@ -48,7 +48,7 @@ export const AppButton = ({btnText}) => {
     ) 
     
     return(
-        <TouchableOpacity style={styles.button}>
+        <TouchableOpacity style={styles.button} onPress={onPress}>
             <Text style={styles.text}>{btnText}</Text>
         </TouchableOpacity>
     )

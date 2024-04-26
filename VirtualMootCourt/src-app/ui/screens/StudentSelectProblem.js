@@ -1,8 +1,8 @@
 import { Dimensions, Image, ImageBackground, SafeAreaView, ScrollView, StyleSheet, Text, TouchableOpacity, View } from "react-native";
-import { AdminNavBar } from "../components/NavBar";
+import { StudentNavBar } from "../components/NavBar";
+import {ProblemDropDown} from "../components/DropDown"
 
-
-const ViewEntriesScreen = () => {
+const SelectProblemScreen = () => {
     const { height, width } = Dimensions.get('window')
 
     const styles = StyleSheet.create(
@@ -21,14 +21,11 @@ const ViewEntriesScreen = () => {
                 borderTopLeftRadius: 60,
                 borderTopRightRadius: 60,
                 borderTopWidth: 1,
-                padding: 25,
-                paddingTop: 60
+                paddingTop: 60,
+                alignItems: "center"
             },
-            header: {
-                fontSize: 18,
-                color: "#ffffff",
-                textAlign:  "center",
-                marginBottom: 20
+            marginView: {
+                marginBottom: 10
             }
         }
     )
@@ -36,9 +33,11 @@ const ViewEntriesScreen = () => {
         <SafeAreaView style={styles.screenContainer}>
             <ImageBackground source={require("../assets/appBG.jpg")} imageStyle={{ objectFit: "fill" }}>
                 <View style={styles.invisibleContainer}>
-                <AdminNavBar></AdminNavBar>
+                <StudentNavBar></StudentNavBar>
                     <View style={styles.contentContainer}>
-                    <Text style={styles.header}>Registered Participants</Text>
+                        <View style={styles.marginView}>
+                        <ProblemDropDown label={"Problem Category"} />
+                        </View>
                     </View>
                 </View>
             </ImageBackground>
@@ -46,4 +45,4 @@ const ViewEntriesScreen = () => {
     )
 }
 
-export default ViewEntriesScreen;
+export default SelectProblemScreen;

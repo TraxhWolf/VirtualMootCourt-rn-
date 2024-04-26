@@ -1,27 +1,96 @@
+import { useState } from "react"
 import { StyleSheet, Text, TouchableOpacity, View } from "react-native"
+import DropDownPicker from "react-native-dropdown-picker"
 
-const AppDropDown = ({label}) => {
+export function ProblemDropDown({label}) {
     const styles = StyleSheet.create(
         {
-            selectionButton: {
-                height: 60,
-                width: 300,
-                backgroundColor: "#ffffff",
-                borderRadius: 10
+            container: {
+                padding: 5,
+                marginBottom: 20
             },
             label: {
                 color: "#ffffff",
                 marginBottom: 5,
                 fontSize: 16
+            },
+            selectStyle: {
+                height: 60,
+                width: 300,
+                borderRadius: 10
             }
         }
     )
+
+    const [open, setOpen] = useState(false)
+    const [value, setValue] = useState(null)
+    const [items, setItems] = useState(
+        [
+            {label: 'Civil', value: 'civil'},
+            {label: 'Criminal', value: 'criminal'}
+        ]
+    )
+
     return(
-        <View>
+        <View style={styles.container}>
             <Text style={styles.label}>{label}</Text>
-            <TouchableOpacity style={styles.selectionButton}></TouchableOpacity>
+            <DropDownPicker
+            open={open}
+            value={value}
+            items={items}
+            setOpen={setOpen}
+            setValue={setValue}
+            setItems={setItems}
+            placeholder="Select category"
+            style={styles.selectStyle}
+             />
         </View>
     )
 }
 
-export default AppDropDown;
+export function DaysDropDown({label}) {
+    const styles = StyleSheet.create(
+        { 
+            container: {
+                padding: 5,
+                marginBottom: 20
+            },
+            label: {
+                color: "#ffffff",
+                marginBottom: 5,
+                fontSize: 16
+            },
+            selectStyle: {
+                height: 60,
+                width: 300,
+                borderRadius: 10
+            }
+        }
+    )
+
+    const [open, setOpen] = useState(false)
+    const [value, setValue] = useState(null)
+    const [items, setItems] = useState(
+        [
+            {label: '30 days', value: '30'},
+            {label: '45 days', value: '45'},
+            {label: '60 days', value: '60'}
+        ]
+    )
+
+    return(
+        <View style={styles.container}>
+            <Text style={styles.label}>{label}</Text>
+            <DropDownPicker
+            open={open}
+            value={value}
+            items={items}
+            setOpen={setOpen}
+            setValue={setValue}
+            setItems={setItems}
+            placeholder="Select no. of days"
+            style={styles.selectStyle}
+             />
+        </View>
+    )
+}

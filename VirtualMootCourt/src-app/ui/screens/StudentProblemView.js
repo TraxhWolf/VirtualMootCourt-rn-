@@ -1,7 +1,7 @@
 import { Dimensions, Image, ImageBackground, SafeAreaView, ScrollView, StyleSheet, Text, TouchableOpacity, View } from "react-native";
-import AppNavBar from "../components/NavBar";
+import AppNavBar, { StudentNavBar } from "../components/NavBar";
 
-const RulesScreen = () => {
+const StudentProblemViewScreen = () => {
     const { height, width } = Dimensions.get('window')
 
     const styles = StyleSheet.create(
@@ -25,10 +25,6 @@ const RulesScreen = () => {
             },
             marginView: {
                 marginBottom: 10
-            },
-            text: {
-                color: "#ffffff",
-                fontSize: 18
             }
         }
     )
@@ -36,9 +32,8 @@ const RulesScreen = () => {
         <SafeAreaView style={styles.screenContainer}>
             <ImageBackground source={require("../assets/appBG.jpg")} imageStyle={{ objectFit: "fill" }}>
                 <View style={styles.invisibleContainer}>
-                    <AppNavBar></AppNavBar>
+                <StudentNavBar></StudentNavBar>
                     <View style={styles.contentContainer}>
-                    <Text style={styles.text}>RULES</Text>
                     </View>
                 </View>
             </ImageBackground>
@@ -46,4 +41,4 @@ const RulesScreen = () => {
     )
 }
 
-export default RulesScreen;
+export default StudentProblemViewScreen;

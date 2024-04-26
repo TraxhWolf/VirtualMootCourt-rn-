@@ -1,6 +1,6 @@
 import { Dimensions, Image, ImageBackground, SafeAreaView, ScrollView, StyleSheet, Text, TouchableOpacity, View } from "react-native";
-import AppNavBar from "../components/NavBar";
-import AppDropDown from "../components/DropDown"
+import { AdminNavBar } from "../components/NavBar";
+import {ProblemDropDown} from "../components/DropDown"
 
 const AdminViewProblemScreen = () => {
     const { height, width } = Dimensions.get('window')
@@ -33,10 +33,10 @@ const AdminViewProblemScreen = () => {
         <SafeAreaView style={styles.screenContainer}>
             <ImageBackground source={require("../assets/appBG.jpg")} imageStyle={{ objectFit: "fill" }}>
                 <View style={styles.invisibleContainer}>
-                    <AppNavBar></AppNavBar>
+                <AdminNavBar></AdminNavBar>
                     <View style={styles.contentContainer}>
                         <View style={styles.marginView}>
-                            <AppDropDown label={"Problem Category"}></AppDropDown>
+                        <ProblemDropDown label={"Problem Category"} />
                         </View>
                     </View>
                 </View>

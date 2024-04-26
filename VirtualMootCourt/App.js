@@ -1,29 +1,16 @@
 import React from 'react';
-import { View } from 'react-native';
-import HomeScreen from './src-app/ui/screens/Home';
-import AdminLoginScreen from './src-app/ui/screens/AdminLogin';
-import StudentLoginScreen from './src-app/ui/screens/StudentLogin';
-import EnterMootScreen from './src-app/ui/screens/EnterMoot';
+import Navigator from './src-app/ui/nav/Navigation';
 import AdminHomeScreen from './src-app/ui/screens/AdminHome';
-import ViewEntriesScreen from './src-app/ui/screens/AdminViewEntries';
-import AddProblemScreen from './src-app/ui/screens/AdminAddProblem';
-import AdminViewProblemScreen from './src-app/ui/screens/AdminViewProblem';
-import AdminProblemViewScreen from './src-app/ui/screens/AdminProblemView';
-import RulesScreen from './src-app/ui/screens/StudentRulesScreen';
+import { PaperProvider } from 'react-native-paper';
+import { NavigationContainer } from '@react-navigation/native';
 
 const App = () => {
   return (
-    //<HomeScreen></HomeScreen>
-    //<AdminLoginScreen></AdminLoginScreen>
-    //<StudentLoginScreen></StudentLoginScreen>
-    //<EnterMootScreen></EnterMootScreen>
-    //<AdminHomeScreen></AdminHomeScreen>
-    //<ViewEntriesScreen></ViewEntriesScreen>
-    //<AddProblemScreen></AddProblemScreen>
-    //<AdminViewProblemScreen></AdminViewProblemScreen>
-    //<AdminProblemViewScreen></AdminProblemViewScreen>
-    <RulesScreen></RulesScreen>
-    )
+    //<Navigator />
+    <PaperProvider>
+    <Navigator />
+    </PaperProvider>
+  )
 }
 
 export default App;

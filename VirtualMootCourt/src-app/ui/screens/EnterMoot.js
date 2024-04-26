@@ -36,7 +36,7 @@ const EnterMootScreen = () => {
                 <View style={styles.invisibleContainer}>
                     <View style={styles.contentContainer}>
                     <BaseInput inputLabel={"Moot Code"}></BaseInput>
-                    <AppButton btnText={"ENTER"}></AppButton>
+                    <AppButton btnText={"ENTER"} /*PASS onPress={} AFTER btnText FOR UNITY WORK DUDE*/></AppButton>
                     </View>
                 </View>
             </ImageBackground>
