@@ -54,7 +54,8 @@ export function DaysDropDown({label, onSelectItem}) {
         { 
             container: {
                 padding: 5,
-                marginBottom: 20
+                marginBottom: 20,
+                width: "100%"
             },
             label: {
                 color: "#ffffff",
@@ -63,7 +64,7 @@ export function DaysDropDown({label, onSelectItem}) {
             },
             selectStyle: {
                 height: 60,
-                width: 300,
+                width: 200,
                 borderRadius: 10
             }
         }

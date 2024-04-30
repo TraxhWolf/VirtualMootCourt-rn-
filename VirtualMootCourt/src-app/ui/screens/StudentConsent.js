@@ -1,4 +1,5 @@
-import { Dimensions, Image, ImageBackground, SafeAreaView, ScrollView, StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import qs from "qs";
+import { Linking, Dimensions, Image, ImageBackground, SafeAreaView, ScrollView, StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import { StudentNavBar } from "../components/NavBar";
 import { BaseInput } from "../components/InputField";
 import { AppButton } from "../components/Button";
@@ -20,7 +21,7 @@ const ConsentAndSelectionScreen = () => {
             },
             contentContainer: {
                 width: width,
-                height: height,
+                flex: 1,
                 backgroundColor: "#131d24cf",
                 borderTopLeftRadius: 60,
                 borderTopRightRadius: 60,
@@ -56,26 +57,31 @@ const ConsentAndSelectionScreen = () => {
     const [petitionerEmail, setPetitionerEmail] = useState('')
     const [respondentEmail, setRespondentEmail] = useState('')
     const [noOfDays, setNoOfDays] = useState(null)
+    let [code, setCode] = useState(null)
     const handleFormSubmit = async () => {
         setJudgeEmail('')
         setPetitionerEmail('')
         setRespondentEmail('')
         setNoOfDays(null)
+        let generatedMootCode = Math.floor(Math.random()*900000)+100000
+        code = setCode(generatedMootCode)
         const participantData = {
             judgeEmail: judgeEmail,
             petitionerEmail: petitionerEmail,
             respondentEmail: respondentEmail,
-            noOfDays: noOfDays
+            noOfDays: noOfDays,
+            mootCode: generatedMootCode
         }
         db.collection("Participants").add(participantData)
         showDialog()
+        console.log(code)
     }
     return (
         <SafeAreaView style={styles.screenContainer}>
             <ImageBackground source={require("../assets/appBG.jpg")} imageStyle={{ objectFit: "fill" }}>
                 <View style={styles.invisibleContainer}>
                     <StudentNavBar></StudentNavBar>
-                    <View style={styles.contentContainer}>
+                    <ScrollView contentContainerStyle={styles.contentContainer}>
                         <View>
                             <Text style={styles.text}>Consent of participation</Text>
                             <Text style={styles.text}>I have confirmed  my participation in this moot session and hereby provide my details for the same.</Text>
@@ -99,7 +105,7 @@ const ConsentAndSelectionScreen = () => {
                                 </Portal>
                             </View>
                         </View>
-                    </View>
+                    </ScrollView>
                 </View>
             </ImageBackground>
         </SafeAreaView>
