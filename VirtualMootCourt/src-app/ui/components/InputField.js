@@ -1,6 +1,6 @@
 import { StyleSheet, Text, TextInput, View } from "react-native"
 
-export const BaseInput = ({ inputLabel, inputMode }) => {
+export const BaseInput = ({ inputLabel, inputMode, onValueChange, value }) => {
 
     const styles = StyleSheet.create(
         {
@@ -26,12 +26,11 @@ export const BaseInput = ({ inputLabel, inputMode }) => {
     return (
         <View style={styles.container}>
             <Text style={styles.label}>{inputLabel}</Text>
-            <TextInput style={styles.input} cursorColor="#131d24" inputMode={inputMode} />
+            <TextInput style={styles.input} cursorColor="#131d24" inputMode={inputMode} onChangeText={onValueChange} value={value} />
         </View>
     )
 }
-
-export const PasswordInput = ({ passwordLabel }) => {
+export const PasswordInput = ({ passwordLabel, onValueChange, value }) => {
 
     const styles = StyleSheet.create(
         {
@@ -56,12 +55,11 @@ export const PasswordInput = ({ passwordLabel }) => {
     return (
         <View style={styles.container}>
             <Text style={styles.label}>{passwordLabel}</Text>
-            <TextInput style={styles.input} cursorColor="#131d24" />
+            <TextInput style={styles.input} cursorColor="#131d24" onChangeText={onValueChange} value={value} />
         </View>
     )
 }
-
-export const BigInput = ({ inputLabel }) => {
+export const BigInput = ({ inputLabel, onValueChange }) => {
     const styles = StyleSheet.create(
         {
             container: {
@@ -86,12 +84,11 @@ export const BigInput = ({ inputLabel }) => {
     return (
         <View style={styles.container}>
             <Text style={styles.label}>{inputLabel}</Text>
-            <TextInput style={styles.input} cursorColor={"#131d24"} multiline={true}></TextInput>
+            <TextInput style={styles.input} cursorColor={"#131d24"} multiline={true} onChangeText={onValueChange}></TextInput>
         </View>
     )
 }
-
-export const VeryBigInput = ({ inputLabel }) => {
+export const VeryBigInput = ({ inputLabel, onValueChange }) => {
     const styles = StyleSheet.create(
         {
             container: {
@@ -121,6 +118,7 @@ export const VeryBigInput = ({ inputLabel }) => {
                 cursorColor={"#131d24"}
                 multiline={true}
                 textAlignVertical="top"
+                onChangeText={onValueChange}
             />
         </View>
     )

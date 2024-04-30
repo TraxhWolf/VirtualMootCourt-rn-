@@ -4,8 +4,8 @@ import { BigInput, VeryBigInput } from "../components/InputField";
 import { AppButton } from "../components/Button";
 import { AdminNavBar } from "../components/NavBar";
 import { Dialog, Portal } from "react-native-paper";
-import React from "react";
-
+import React, { useState } from "react";
+import db from "../../firebase";
 
 const AddProblemScreen = () => {
     const { height, width } = Dimensions.get('window')
@@ -45,6 +45,21 @@ const AddProblemScreen = () => {
     const [visible, setVisible] = React.useState(false)
     const showDialog = () => setVisible(true)
     const hideDialog = () => setVisible(false)
+    const [category, setCategory] = useState(null)
+    const [synopsis, setSynopsis] = useState('')
+    const [problem, setProblem] = useState('')
+    const handleAddProblemForm = async () => {
+        setCategory(null)
+        setSynopsis('')
+        setProblem('')
+        const problemData = {
+            problemCategory: category,
+            problemSynopsis: synopsis,
+            problemStatement: problem
+        }
+        db.collection("Problem Statement").add(problemData)
+        showDialog()
+    }
     return (
         <SafeAreaView style={styles.screenContainer}>
             <ImageBackground source={require("../assets/appBG.jpg")} imageStyle={{ objectFit: "fill" }}>
@@ -52,15 +67,15 @@ const AddProblemScreen = () => {
                 <AdminNavBar></AdminNavBar>
                     <View style={styles.contentContainer}>
                         <View style={styles.marginView}>
-                            <ProblemDropDown label={"Problem Category"} />
+                            <ProblemDropDown label={"Problem Category"} onSelectItem={setCategory}/>
                         </View>
                         <View style={styles.marginView}>
-                            <BigInput inputLabel={"Synopsis"}></BigInput>
+                            <BigInput inputLabel={"Synopsis"} onValueChange={setSynopsis}></BigInput>
                         </View>
                         <View style={styles.marginView}>
-                            <VeryBigInput inputLabel={"Problem Statement"}></VeryBigInput>
+                            <VeryBigInput inputLabel={"Problem Statement"} onValueChange={setProblem}></VeryBigInput>
                         </View>
-                        <AppButton btnText={"DONE"} onPress={showDialog}></AppButton>
+                        <AppButton btnText={"DONE"} onPress={handleAddProblemForm}></AppButton>
                         <Portal>
                             <Dialog visible={visible} onDismiss={hideDialog} style={styles.dialogContainer}>
                                 <Dialog.Content>

@@ -1,11 +1,12 @@
-import { ImageBackground, SafeAreaView, StyleSheet, View, Dimensions } from "react-native"
+import { ImageBackground, SafeAreaView, StyleSheet, View, Dimensions, Alert } from "react-native"
 import { BaseInput, PasswordInput } from "../components/InputField"
 import { AppButton } from "../components/Button"
+import { useContext, useState } from "react"
+import { AuthContext } from "../../contexts/AuthContext"
+import db from "../../firebase"
 
 const AdminLoginScreen = ({navigation}) => {
-
     const { width, height } = Dimensions.get('window')
-
     const styles = StyleSheet.create(
         {
             screenContainer: {
@@ -33,16 +34,38 @@ const AdminLoginScreen = ({navigation}) => {
             }
         }
     )
-
+    const {  isLoggedIn, setIsLoggedIn  } = useContext(AuthContext)
+    const [credential, setCredential] = useState('')
+    const [password, setPassword] = useState('')
+    const handleAdminLogin = async () => {
+        setCredential('')
+        setPassword('')
+        const fetchdata = db.collection("Admin").onSnapshot(snapshot => {
+            let found = false
+            snapshot.forEach(doc => {
+                const data = doc.data();
+                if (data.adminCredential === credential && data.adminPassword === password) {
+                    found = true
+                    navigation.navigate("AdminHome");
+                    return
+                }
+            });
+            if (!found) {
+                Alert.alert('Login Failed', 'Username or Password is incorrect');
+            }
+        }, error => {
+            console.error('Error fetching users:', error);
+        });
+    }
     return (
         <SafeAreaView style={styles.screenContainer}>
             <ImageBackground source={require("../assets/HomeScreenBG.jpg")} imageStyle={{ objectFit: "fill" }}>
                 <View style={styles.invisibleContainer}>
                     <View style={styles.contentContainer}>
                         <View style={styles.inputContainer}>
-                            <BaseInput inputLabel={"Username"}></BaseInput>
-                            <PasswordInput passwordLabel={"Password"}></PasswordInput>
-                            <AppButton btnText={"LOGIN"} onPress={()=>navigation.navigate("AdminHome")}></AppButton>
+                            <BaseInput inputLabel={"Username"} onValueChange={setCredential}></BaseInput>
+                            <PasswordInput passwordLabel={"Password"} onValueChange={setPassword}></PasswordInput>
+                            <AppButton btnText={"LOGIN"} onPress={handleAdminLogin} ></AppButton>
                         </View>
                     </View>
                 </View>

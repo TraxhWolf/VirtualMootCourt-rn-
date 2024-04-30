@@ -1,16 +1,16 @@
 import React from 'react';
 import Navigator from './src-app/ui/nav/Navigation';
-import AdminHomeScreen from './src-app/ui/screens/AdminHome';
 import { PaperProvider } from 'react-native-paper';
-import { NavigationContainer } from '@react-navigation/native';
+import { RootProvider } from './src-app/contexts/RootContext'
 
 const App = () => {
-  return (
-    //<Navigator />
-    <PaperProvider>
-    <Navigator />
-    </PaperProvider>
-  )
+    return (
+        <RootProvider>
+            <PaperProvider>
+                <Navigator />
+            </PaperProvider>
+        </RootProvider>
+    )
 }
 
 export default App;

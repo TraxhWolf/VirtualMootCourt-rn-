@@ -2,7 +2,7 @@ import { useState } from "react"
 import { StyleSheet, Text, TouchableOpacity, View } from "react-native"
 import DropDownPicker from "react-native-dropdown-picker"
 
-export function ProblemDropDown({label}) {
+export function ProblemDropDown({label, onSelectItem}) {
     const styles = StyleSheet.create(
         {
             container: {
@@ -43,12 +43,13 @@ export function ProblemDropDown({label}) {
             setItems={setItems}
             placeholder="Select category"
             style={styles.selectStyle}
+            onSelectItem={onSelectItem}
              />
         </View>
     )
 }
 
-export function DaysDropDown({label}) {
+export function DaysDropDown({label, onSelectItem}) {
     const styles = StyleSheet.create(
         { 
             container: {
@@ -77,6 +78,10 @@ export function DaysDropDown({label}) {
             {label: '60 days', value: '60'}
         ]
     )
+    const handleValueChange = (selectedValue) => {
+        setValue(selectedValue);
+        onSelectItem(selectedValue);
+    }
 
     return(
         <View style={styles.container}>
@@ -90,6 +95,8 @@ export function DaysDropDown({label}) {
             setItems={setItems}
             placeholder="Select no. of days"
             style={styles.selectStyle}
+            onSelectItem={onSelectItem}
+            onChangeValue={handleValueChange}
              />
         </View>
     )
