@@ -38,6 +38,7 @@ const EnterMootScreen = () => {
                 const data = doc.data();
                 if (data.mootCode === code) {
                     found = true
+                    console.log(code)
                     return
                 }
             });
